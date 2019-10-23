@@ -1,0 +1,1 @@
+insert into user (login, password, role, DTYPE) values ('admin', 'nimda', 'ADMIN', 'User')
