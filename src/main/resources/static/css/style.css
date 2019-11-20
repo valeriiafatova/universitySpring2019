@@ -382,6 +382,10 @@ button:focus {
   .header-top ul li {
     display: inline-block;
     margin-left: 15px; }
+.header-top .header-top-right a {
+  font-size: 1.4em;
+  line-height: 1.8em;
+}
   .header-top .header-top-left a {
     margin-right: 60px;
     font-weight: 600; }
