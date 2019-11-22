@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<fmt:setLocale value="${locale}"/>
-<fmt:setBundle basename="${bundle}"/>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+
 <html>
 
 <head>
@@ -20,7 +19,7 @@
                 <div class="col-lg-6">
                     <div class="banner_content">
                         <h2>
-                            <fmt:message key="home.banner.content"/><br>
+                            <spring:message code="home.banner.content"/><br>
                             Courses on the Web
                         </h2>
                         <p>

@@ -33,9 +33,9 @@
                 </div>
 
                 <div class="col-lg-2 col-sm-4 col-6 header-top-right">
-                    <a href="language?locale=en" class="text-uppercase">en</a>
-                    <a href="language?locale=de" class="text-uppercase ml-2">de</a>
-                    <a href="language?locale=ru" class="text-uppercase ml-2">ru</a>
+                    <a href="?locale=en" class="text-uppercase">en</a>
+                    <a href="?locale=de" class="text-uppercase ml-2">de</a>
+                    <a href="?locale=ru" class="text-uppercase ml-2">ru</a>
                 </div>
                 <div class="col-lg-4 col-sm-2 col-2 header-top-right">
                     <c:choose>
