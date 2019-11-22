@@ -1,4 +1,4 @@
-package com.epam.university.com.epam.university;
+package com.epam.university;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

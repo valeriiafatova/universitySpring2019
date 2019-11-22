@@ -23,6 +23,10 @@ public class User extends BaseEntity {
     private String login;
     @Column(name = "password")
     private String password;
+    @Column(name = "first_name")
+    private String firstName;
+    @Column(name = "last_name")
+    private String lastName;
     @Enumerated(value = EnumType.STRING)
     private Role role;
 
@@ -32,6 +36,14 @@ public class User extends BaseEntity {
     public User(String login, String password, Role role) {
         this.login = login;
         this.password = password;
+        this.role = role;
+    }
+
+    public User(String login, String password, String firstName, String lastName, Role role) {
+        this.login = login;
+        this.password = password;
+        this.lastName = lastName;
+        this.firstName = firstName;
         this.role = role;
     }
 
