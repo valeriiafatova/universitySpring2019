@@ -34,11 +34,11 @@
                 <div class="col-lg-4 col-sm-2 col-2 header-top-right">
                     <security:authorize access="isAuthenticated()">
                         <a href="" class="text-uppercase my-account">My account</a>
-                        <a href="logout" class="text-uppercase ml-4">Logout</a>
+                        <a href="/logout" class="text-uppercase ml-4">Logout</a>
                     </security:authorize>
                     <security:authorize access="isAnonymous()">
-                        <a href="" class="text-uppercase login">Login</a>
-                        <a href="registration" class="text-uppercase ml-4">Register</a>
+                        <a href="/login" class="text-uppercase login">Login</a>
+                        <a href="/registration" class="text-uppercase ml-4">Register</a>
                     </security:authorize>
                 </div>
             </div>

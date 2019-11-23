@@ -16,4 +16,3 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE" type="text/javascript"></script>
 <script src="js/gmaps.min.js" type="text/javascript"></script>
 <script src="js/theme.js" type="text/javascript"></script>
-<script src="js/login.js"></script>

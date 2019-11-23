@@ -19,7 +19,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="banner_content text-center">
-                        <h2>Registration</h2>
+                        <h2>Login</h2>
                         <p>Please, provide your details to be able to enroll for course and see your ratings.</p>
                         <div class="page_link">
                             <a href="">Home</a>
@@ -35,25 +35,13 @@
 
 <section class="section-top-border">
     <div class="container col-lg-4">
-        <h3 class="mb-30 title_color">Registration Form</h3>
-        <form:form action="registration" method="post" modelAttribute="registrationForm">
-
-            <div class="mt-10">
-                <form:input type="text" path="first_name" cssClass="single-input"/>
-                <label data-error="wrong" data-success="right" for="first_name">First name</label><br>
-                <form:errors path="first_name" cssClass="text-danger"/>
-            </div>
-            <div class="mt-10">
-                <form:input type="text" path="last_name" cssClass="single-input"/>
-                <label data-error="wrong" data-success="right" for="last_name">Last name</label><br>
-                <form:errors path="last_name" cssClass="text-danger"/>
-
-            </div>
+        <h3 class="mb-30 title_color">Sign in</h3>
+        <form:form action="login" method="post">
             <div class="input-group-icon mt-10">
                 <div class="icon mt-10"><i class="fa fa-user"></i></div>
-                <form:input type="text" path="login" cssClass="single-input"/>
-                <label data-error="wrong" data-success="right" for="login">Login</label><br>
-                <form:errors path="login" cssClass="text-danger"/>
+                <form:input type="text" path="username" cssClass="single-input"/>
+                <label data-error="wrong" data-success="right" for="username">Login</label><br>
+                <form:errors path="username" cssClass="text-danger"/>
 
             </div>
             <div class="input-group-icon mt-10">
@@ -61,16 +49,9 @@
                 <form:input type="password" path="password" cssClass="single-input"/>
                 <label data-error="wrong" data-success="right" for="password">Your Password</label><br>
                 <form:errors path="password" cssClass="text-danger"/>
-
-            </div>
-            <div class="input-group-icon mt-10">
-                <div class="icon mt-10"><i class="fa fa-lock"></i></div>
-                <form:input type="password" path="password_confirm" cssClass="single-input"/>
-                <label data-error="wrong" data-success="right" for="password_confirm">Confirm password</label><br>
-                <form:errors path="password_confirm" cssClass="text-danger"/>
             </div>
             <div class="mt-25">
-                <button type="submit" class="primary-btn text-uppercase enroll">Registration</button>
+                <button type="submit" class="primary-btn text-uppercase enroll">Sign in</button>
             </div>
         </form:form>
     </div>

@@ -8,9 +8,13 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.authority.mapping.GrantedAuthoritiesMapper;
+import org.springframework.security.core.authority.mapping.SimpleAuthorityMapper;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AndRequestMatcher;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import javax.annotation.Resource;
 
@@ -30,6 +34,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         }
 
         @Bean
+        public GrantedAuthoritiesMapper authoritiesMapper(){
+                SimpleAuthorityMapper authorityMapper = new SimpleAuthorityMapper();
+                authorityMapper.setConvertToUpperCase(true);
+                authorityMapper.setDefaultAuthority("STUDENT");
+                return authorityMapper;
+        }
+
+        @Bean
         public PasswordEncoder passwordEncoder() {
                 return new BCryptPasswordEncoder(11);
         }
@@ -41,15 +53,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         @Override
         protected void configure(HttpSecurity http) throws Exception {
-                http
-                        .csrf().disable()
-                        .headers().frameOptions().disable()
-                        .and()
-                        .authorizeRequests()
-                        .antMatchers("/", "/index", "/registration", "/login", "/h2-console/**",  "/css/**", "/js/**", "/img/**", "/fonts/**", "/scss/**", "/vendors/**")
+                http.csrf().disable().headers().frameOptions().disable().and().authorizeRequests()
+                        .antMatchers("/", "/index", "/registration", "/h2-console/**", "/css/**", "/js/**", "/img/**",
+                                "/fonts/**", "/scss/**", "/vendors/**")
                         .permitAll()
-                        .anyRequest().authenticated()
+                        .anyRequest().authenticated().and()
+                        .formLogin()
+                        .loginPage("/login").permitAll()
                         .and()
-                        .httpBasic();
+                        .logout().invalidateHttpSession(true)
+                        .clearAuthentication(true)
+                        .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                        .logoutSuccessUrl("/");
         }
 }
