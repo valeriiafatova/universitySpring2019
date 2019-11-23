@@ -1,12 +1,6 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Valeriia_Fatova
-  Date: 11/14/2019
-  Time: 5:14 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
     <title>Title</title>
@@ -38,16 +32,14 @@
                     <a href="?locale=ru" class="text-uppercase ml-2">ru</a>
                 </div>
                 <div class="col-lg-4 col-sm-2 col-2 header-top-right">
-                    <c:choose>
-                        <c:when test="${not empty user}">
-                            <a href="" class="text-uppercase my-account">My account</a>
-                            <a href="logout" class="text-uppercase ml-4">Logout</a>
-                        </c:when>
-                        <c:otherwise>
-                            <a href="" class="text-uppercase login">Login</a>
-                            <a href="registration" class="text-uppercase ml-4">Register</a>
-                        </c:otherwise>
-                    </c:choose>
+                    <security:authorize access="isAuthenticated()">
+                        <a href="" class="text-uppercase my-account">My account</a>
+                        <a href="logout" class="text-uppercase ml-4">Logout</a>
+                    </security:authorize>
+                    <security:authorize access="isAnonymous()">
+                        <a href="" class="text-uppercase login">Login</a>
+                        <a href="registration" class="text-uppercase ml-4">Register</a>
+                    </security:authorize>
                 </div>
             </div>
         </div>
