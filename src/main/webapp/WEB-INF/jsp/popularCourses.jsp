@@ -23,7 +23,7 @@
                             <img class="img-fluid w-100" src="img/courses/trainer1.jpg" alt="">
                             <div class="authr_meta">
                                 <img src="img/author1.png" alt="">
-                                <span>${course.lecturer.name}</span>
+                                <span>${course.lecturer.firstName} ${course.lecturer.lastName}</span>
                             </div>
                         </div>
                         <div class="course_content">

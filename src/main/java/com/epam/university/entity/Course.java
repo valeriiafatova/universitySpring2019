@@ -5,6 +5,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.util.Objects;
 import java.util.Set;
@@ -15,11 +16,9 @@ public class Course extends BaseEntity {
     
     private String title;
     private String description;
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "course_lecturer", 
-            joinColumns = @JoinColumn(name = "course_id"), 
-            inverseJoinColumns = @JoinColumn(name = "lecturer_id"))
-    private Set<Lecturer> lecturers;
+    @ManyToOne
+    @JoinColumn(name = "lecturer_id", referencedColumnName = "id")
+    private Lecturer lecturer;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "course_student",
@@ -52,6 +51,22 @@ public class Course extends BaseEntity {
         this.description = description;
     }
 
+    public Lecturer getLecturer() {
+        return lecturer;
+    }
+
+    public void setLecturer(Lecturer lecturer) {
+        this.lecturer = lecturer;
+    }
+
+    public Set<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(Set<Student> students) {
+        this.students = students;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -64,8 +79,7 @@ public class Course extends BaseEntity {
             return false;
         }
         Course course = (Course) o;
-        return title.equals(course.title) && description.equals(course.description) &&
-                Objects.equals(lecturers, course.lecturers) && Objects.equals(students, course.students);
+        return Objects.equals(title, course.title) && Objects.equals(description, course.description);
     }
 
     @Override
@@ -75,7 +89,7 @@ public class Course extends BaseEntity {
 
     @Override
     public String toString() {
-        return "Course{" + "title='" + title + '\'' + ", description='" + description + '\'' + ", lecturers=" +
-                lecturers + ", students=" + students + "} " + super.toString();
+        return "Course{" + "title='" + title + '\'' + ", description='" + description + '\'' + ", lecturer=" +
+                lecturer + ", students=" + students + "} " + super.toString();
     }
 }
