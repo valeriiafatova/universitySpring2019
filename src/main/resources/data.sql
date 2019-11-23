@@ -1,1 +1,1 @@
-insert into user (login, password, role, DTYPE) values ('admin', 'nimda', 'ADMIN', 'User')
+insert into user (login, password, first_name, last_name, role, DTYPE) values ('admin', 'nimda', 'Valeriia', 'Adminovich', 'ADMIN', 'User');

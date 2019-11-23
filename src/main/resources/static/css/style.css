@@ -383,8 +383,9 @@ button:focus {
     display: inline-block;
     margin-left: 15px; }
 .header-top .header-top-right a {
-  font-size: 1.4em;
-  line-height: 1.8em;
+  font-size: 1.5em;
+  line-height: 1.7em;
+  padding: 8px;
 }
   .header-top .header-top-left a {
     margin-right: 60px;

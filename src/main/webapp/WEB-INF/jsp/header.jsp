@@ -17,7 +17,7 @@
     <div class="header-top">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 col-sm-6 col-4 header-top-left">
+                <div class="col-lg-5 col-sm-6 col-4 header-top-left">
                     <a href="tel:+9530123654896">
                         <span class="lnr lnr-phone"></span>
                         <span class="text">
@@ -32,7 +32,7 @@
                     </a>
                 </div>
 
-                <div class="col-lg-2 col-sm-4 col-6 header-top-right">
+                <div class="col-lg-3 col-sm-4 col-6 header-top-right">
                     <a href="?locale=en" class="text-uppercase">en</a>
                     <a href="?locale=de" class="text-uppercase ml-2">de</a>
                     <a href="?locale=ru" class="text-uppercase ml-2">ru</a>
